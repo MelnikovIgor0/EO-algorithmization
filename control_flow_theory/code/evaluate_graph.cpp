@@ -14,18 +14,11 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    if (argc < 0 || argc > 2) {
+    if (argc != 2) {
         std::cerr << "Wrong number of arguments" << std::endl;
         return 0;
     }
-    Graph graph;
-    if (argc == 2) {
-        ifstream fin(argv[1]);
-        graph = read_graph(fin);
-        fin.close();
-    } else {
-        graph = read_graph(cin);
-    }
+    Graph graph = read_graph(argv[1]);
     cout << evaluate_graph(graph) << endl;
     return 0;
 }
